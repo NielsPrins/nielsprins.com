@@ -43,5 +43,68 @@
     </a>
 </div>
 
+<div class="code-blocks">
+    <div class="code">
+        <span class="code-purple">import</span> <span class="code-lightblue">express</span> <span class="code-purple">from</span> <span class="code-orange">'express'</span>;<br>
+        <br>
+        <span class="code-blue">const</span> <span class="code-lightblue">app</span> = <span class="code-yellow">express()</span>;<br>
+        <span class="code-blue">const</span> <span class="code-lightblue">port</span> = <span class="code-yellow">3000</span>;<br>
+        <br>
+        <span class="code-blue">const</span> <span class="code-lightblue">personalInfo</span> = <span class="code-yellow">{</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-lightblue">email:</span> <span class="code-orange">'niels123.prins@gmail.com'</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-lightblue">city:</span> <span class="code-orange">'Nieuw-Vennep'</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-lightblue">birthdate:</span> <span class="code-orange">'01-05-2000'</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-lightblue">working_at:</span> <span class="code-orange">'FreshPortal Software'</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-lightblue">onion_site:</span> <span class="code-orange">'nielsp3azmvkuwuwllknghcqxofvyhwfck3wsacs7pmlaoanekz2ncad.onion'</span>,<br>
+        <span class="code-yellow">}</span>;<br>
+        <br>
+        <span class="code-blue">app</span>.<span class="code-yellow">use(</span><span class="code-purple">(</span><span class="code-lightblue">req</span>, <span class="code-lightblue">res</span>, <span class="code-lightblue">next</span><span class="code-purple">)</span> <span
+            class="code-blue">=></span> <span class="code-purple">{</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-lightblue">res</span>.<span class="code-yellow">header</span><span class="code-blue">(</span><span class="code-orange">'Access-Control-Allow-Origin'</span>, <span class="code-orange">'*'</span><span class="code-blue">)</span>;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">next</span><span class="code-blue">()</span>;<br>
+        <span class="code-purple">}</span><span class="code-yellow">)</span>;<br>
+        <br>
+        <span class="code-blue">app</span>.<span class="code-yellow">get(</span><span class="code-orange">'/api/info'</span>, <span class="code-purple">(</span><span class="code-lightblue">req</span>, <span class="code-lightblue">res</span><span class="code-purple">)</span> <span class="code-blue">=></span>
+        <span class="code-purple">{</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-lightblue">res</span>.<span class="code-yellow">json</span><span class="code-blue">(personalInfo)</span>;<br>
+        <span class="code-purple">}</span><span class="code-yellow">)</span>;<br>
+        <br>
+        <span class="code-blue">app</span>.<span class="code-yellow">listen(</span><span class="code-blue">port</span>, <span class="code-purple">()</span> <span class="code-blue">=></span> <span class="code-purple">{</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-lightblue">console</span>.<span class="code-yellow">log</span><span class="code-blue">(</span><span class="code-orange">`API listening at http://localhost:</span><span class="code-blue">${port}</span><span class="code-orange">`</span><span
+            class="code-blue">)</span>;<br>
+        <span class="code-purple">}</span><span class="code-yellow">)</span>;
+    </div>
+    <div class="code">
+        <span class="code-purple">import</span> <span class="code-yellow">{</span> <span class="code-lightblue">Component, inject, OnInit</span> <span class="code-yellow">}</span> <span class="code-purple">from</span> <span class="code-orange">'@angular/core'</span>;<br>
+        <span class="code-purple">import</span> <span class="code-yellow">{</span> <span class="code-lightblue">HttpClient</span> <span class="code-yellow">}</span> <span class="code-purple">from</span> <span class="code-orange">'@angular/common/http'</span>;<br>
+        <span class="code-purple">import</span> <span class="code-yellow">{</span> <span class="code-lightblue">map, Observable</span> <span class="code-yellow">}</span> <span class="code-purple">from</span> <span class="code-orange">"rxjs"</span>;<br>
+        <br>
+        @<span class="code-yellow">Component(</span><span class="code-purple">{</span><br>
+        &nbsp;&nbsp;<span class="code-blue">template:</span> <span class="code-orange">`</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-orange">&lt;h1>Personal info&lt;/h1></span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-orange">@for (data of personalInfo$ | async; track data[0]) {</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-orange">{{ data[0] }}: {{ data[1] }}</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-orange">}</span><br>
+        &nbsp;&nbsp;<span class="code-orange">`</span>,<br>
+        <span class="code-purple">}</span><span class="code-yellow">)</span><br>
+        <span class="code-purple">export</span> <span class="code-blue">class</span> <span class="code-teal">PersonalInfoComponent</span> <span class="code-blue">implements</span> <span class="code-teal">OnInit</span> <span class="code-yellow">{</span><br>
+        <br>
+        &nbsp;&nbsp;<span class="code-blue">private</span> <span class="code-lightblue">apiUrl</span> = <span class="code-orange">'http://localhost:3000/api/info'</span>;<br>
+        &nbsp;&nbsp;<span class="code-blue">public</span> <span class="code-lightblue">personalInfo</span>$?: <span class="code-teal">Observable</span><span class="code-purple"><</span><span class="code-blue">[</span><span class="code-teal">string</span>, <span class="code-teal">string</span><span
+            class="code-blue">][]</span><span class="code-purple">></span>;<br>
+        &nbsp;&nbsp;<span class="code-blue">private</span> <span class="code-lightblue">http</span> = <span class="code-yellow">inject</span><span class="code-purple">(</span><span class="code-lightblue">HttpClient</span><span class="code-purple">)</span>;<br>
+        <br>
+        &nbsp;&nbsp;<span class="code-blue">public</span> <span class="code-yellow">ngOnInit</span><span class="code-purple">() {</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">this</span>.<span class="code-lightblue">personalInfo$</span> = <span class="code-blue">this</span>.<span class="code-lightblue">http</span>.<span class="code-yellow">get</span><span class="code-blue">(this</span>.<span class="code-lightblue">apiUrl</span><span
+            class="code-blue">)</span>.<span class="code-yellow">pipe</span><span class="code-blue">(</span><span class="code-yellow">map(</span><span class="code-purple">(</span><span class="code-blue">personalInfo</span><span class="code-purple">)</span> <span class="code-blue">=></span> <span
+            class="code-purple">{</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-purple">return</span> <span class="code-teal">Object</span>.<span class="code-yellow">entries</span><span class="code-blue">(</span><span class="code-lightblue">personalInfo</span><span class="code-blue">)</span>;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-purple">}</span><span class="code-yellow">)</span><span class="code-blue">)</span>;<br>
+        &nbsp;&nbsp;<span class="code-purple">}</span><br>
+        <br>
+        <span class="code-yellow">}</span>
+    </div>
+</div>
+
 </body>
 </html>
