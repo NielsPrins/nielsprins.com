@@ -81,10 +81,11 @@
         <br>
         @<span class="code-yellow">Component(</span><span class="code-purple">{</span><br>
         &nbsp;&nbsp;<span class="code-blue">template:</span> <span class="code-orange">`</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-orange">&lt;h1>Personal info&lt;/h1></span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-orange">@for (data of personalInfo$ | async; track data[0]) {</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-orange">{{ data[0] }}: {{ data[1] }}</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-orange">}</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="code-blue">h1</span>>Personal info&lt;/<span class="code-blue">h1</span>><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-purple">@for</span> (<span class="code-lightblue">data</span> <span class="code-blue">of</span> <span class="code-blue">personalInfo$</span> | <span class="code-yellow">async</span>; <span class="code-lightblue">track data</span><span
+            class="code-blue">[</span>0<span class="code-blue">]</span>) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ <span class="code-lightblue">data</span><span class="code-blue">[</span>0<span class="code-blue">]</span> }}: {{ <span class="code-lightblue">data</span><span class="code-blue">[</span>1<span class="code-blue">]</span> }}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
         &nbsp;&nbsp;<span class="code-orange">`</span>,<br>
         <span class="code-purple">}</span><span class="code-yellow">)</span><br>
         <span class="code-purple">export</span> <span class="code-blue">class</span> <span class="code-teal">PersonalInfoComponent</span> <span class="code-blue">implements</span> <span class="code-teal">OnInit</span> <span class="code-yellow">{</span><br>

@@ -26,11 +26,17 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 2em;
-    padding: 2em 0.75em 0.75em 0.75em;
+    padding: 2em 0.75em;
 }
 
 .accent-color {
     color: var(--accent-color);
+}
+
+@media only screen and (max-width: 1023px) {
+    h1, p {
+        text-align: center;
+    }
 }
 
 .buttons {
@@ -51,6 +57,12 @@ a {
     text-decoration: none;
     padding: 1em 0.5em;
     border-radius: 0.375rem;
+}
+
+@media only screen and (max-width: 1023px) {
+    a {
+        padding: 0.5em 0.5em;
+    }
 }
 
 a > svg {
@@ -81,8 +93,15 @@ a.outlined {
     padding: 1em;
     border-radius: 0.375rem;
     font-family: monospace, var(--font-family);
+    font-size: 13px;
     overflow-x: auto;
     white-space: nowrap;
+}
+
+@media only screen and (max-width: 1023px) {
+    .code {
+        font-size: 12px;
+    }
 }
 
 .code-purple {
