@@ -1,7 +1,0 @@
-services:
-  nielsprins:
-    container_name: nielsprins
-    build: .
-    restart: unless-stopped
-    ports:
-      - "80:80"
