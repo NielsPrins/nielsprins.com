@@ -1,6 +1,6 @@
 :root {
-    --accent-color: hsl(0, 91%, 71%);
-    --background-color: hsl(221, 18%, 20%);
+    --accent-color: hsl(5, 100%, 69%);
+    --background-color: hsl(225, 41%, 31%);
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
@@ -20,7 +20,6 @@ html {
 }
 
 body {
-    background-image: linear-gradient(to bottom, hsl(217, 33%, 17%), hsla(217, 33%, 17%, 0));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,7 +51,7 @@ a {
     gap: 0.375em;
     font-size: 1.5em;
     background-color: hsl(0, 0%, 100%);
-    color: hsl(0, 0%, 0%);
+    color: var(--background-color);
     font-weight: 700;
     text-decoration: none;
     padding: 1em 0.5em;
@@ -72,7 +71,7 @@ a > svg {
 a.outlined {
     background-color: transparent;
     color: hsl(0, 0%, 100%);
-    border: 2px solid hsl(220, 9%, 46%);
+    border: 2px solid hsl(0, 0%, 100%);
 }
 
 .code-blocks {
